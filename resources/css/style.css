@@ -1,0 +1,239 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+/* ------------------------------ */
+
+html, body{
+	width: 100%;
+	height: 100%;
+	font-family: monospace, sans-serif;
+	background-color: #fbb9a1;
+	background-color: #f2ebe3;
+	overflow: hidden;
+}
+
+/* ------------------------------ */
+
+#container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#can-container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 0.2s ease-out;
+}
+
+
+/* ------------------------------ */
+
+.mono-wrapper{
+	position: absolute;
+	width: 96px;
+	height: 96px;
+	left: 20px;
+	top: 20px;
+	margin: auto;
+}
+
+#monogram .shape .stk{
+	fill:none;
+	stroke:#252627;
+	stroke-width:5;
+}
+
+
+#monogram .shape.s-lower-cut .stk,
+#monogram .shape.s-upper-cut .stk {
+	stroke-dasharray: 0 770 770;
+	stroke-dashoffset: 0;
+
+}
+
+#monogram.anim .shape.s-lower-cut .stk,
+#monogram.anim .shape.s-upper-cut .stk {
+	animation: anim-shape-cut 1.2s cubic-bezier(0.65, 0.05, 0.36, 1) forwards
+}
+
+@keyframes anim-shape-cut {
+	to {
+		stroke-dashoffset: 770;
+	}
+}
+
+/* ------------------------- */
+
+#monogram .shape.s-g{
+	transform: rotate(-15deg);
+	transform-origin: center;
+}
+
+#monogram.anim .shape.s-g{
+	animation: anim-shape-sg 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+	/*animation-delay: 0.4s;*/
+}
+
+@keyframes anim-shape-sg {
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+#monogram .shape.s-g path.stk{
+	stroke-dasharray: 0 410 410;
+	stroke-dashoffset: 0;  
+}
+
+#monogram.anim .shape.s-g path.stk{
+	stroke-dashoffset: 0;
+	animation: anim-shape-g-path 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+	/*animation-delay: 0.4s;*/
+}
+
+@keyframes anim-shape-g-path {
+	to {
+		stroke-dashoffset: 410;
+	}
+}
+
+#monogram .shape.s-g line.stk{
+	stroke-dasharray: 0 55;
+	stroke-dashoffset: 0;  
+}
+
+#monogram.anim .shape.s-g line.stk{
+	stroke-dashoffset: 0;  
+	animation: anim-shape-g-line 0.5s forwards;
+	/*animation-delay: 0.6s;*/
+}
+
+@keyframes anim-shape-g-line {
+	to {
+		stroke-dasharray: 110 0;
+		stroke-dashoffset: 110;
+	}
+}
+
+/* ------------------------- */
+
+
+#monogram .shape.s-m polygon.stk{
+	stroke-dasharray: 0 320;
+	stroke-dashoffset: 0;  
+
+	opacity: 0;
+}
+
+#monogram.anim .shape.s-m polygon.stk{
+	stroke-dashoffset: 0;  
+	opacity: 0;
+	animation: anim-shape-m-poly 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+	/*animation-delay: 0.4s;*/
+}
+
+@keyframes anim-shape-m-poly {
+	0%{
+		stroke-dasharray: 0 320;
+		stroke-dashoffset: 0;  
+	}
+	1%{
+		opacity: 1;
+	}
+
+	100% {
+		stroke-dasharray: 550 300;
+		stroke-dashoffset: 850;
+		opacity: 1;
+	}
+}
+
+#monogram .shape.s-m line.stk{
+	stroke-dasharray: 0 150;
+	stroke-dashoffset: 0;  
+
+}
+
+#monogram.anim .shape.s-m line.stk{
+	stroke-dashoffset: 0;  
+	animation: anim-shape-m-line 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+	/*animation-delay: 0.8s;*/
+}
+@keyframes anim-shape-m-line{
+	to{
+		stroke-dasharray: 110 150;
+	}
+}
+
+/* ------------------ */
+
+
+.preloader{
+	position: fixed;
+	width: auto;
+	top: 50%;
+	transition: top 0.3s ease-out;
+	z-index: 9898
+}
+
+
+.preloader .progressbar{
+	display: block;
+	position: relative;
+	width: 0;
+	height: 2px;
+	background-color: #000;
+	transition: height 0.3s ease-out;
+}
+
+
+footer{
+	opacity: 0;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	
+}
+
+footer div a{
+	font-size: 11px;
+	color: #000;
+	text-decoration: none;
+}
+
+
+
+/* ------------------ */
+
+@media all and (max-width: 640px) {
+	.mono-wrapper{
+		width: 112px;
+		height: 112px;
+	}
+
+	nav {
+		left: 10px;
+	}
+	nav a{
+		font-size: 15px;
+	}
+
+	nav a:first-child{
+		margin-right: 10px;
+	}
+}
+
